@@ -1,0 +1,14 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "joyofpainting:item/item_canvas_long"
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "joyofpainting:drawn": 1
+      },
+      "model": "joyofpainting:item/item_canvas_long_drawn"
+    }
+  ]
+}

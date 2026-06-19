@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "sss",
+    "sps",
+    "sss"
+  ],
+  "key": {
+    "p": { "item": "minecraft:paper" },
+    "s": { "item": "minecraft:stick" }
+  },
+  "result": {
+    "item": "joyofpainting:item_canvas",
+    "count": 1
+  }
+}

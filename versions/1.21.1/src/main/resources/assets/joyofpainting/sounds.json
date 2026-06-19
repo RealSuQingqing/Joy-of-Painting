@@ -1,0 +1,86 @@
+{
+  "stroke_loop": {
+    "sounds": [
+      {
+        "name": "joyofpainting:brush-loop1"
+      },
+      {
+        "name": "joyofpainting:brush-loop2"
+      }
+    ]
+  },
+  "mix": {
+    "sounds": [
+      {
+        "name": "joyofpainting:mix1"
+      },
+      {
+        "name": "joyofpainting:mix2"
+      },
+      {
+        "name": "joyofpainting:mix3"
+      },
+      {
+        "name": "joyofpainting:mix4"
+      },
+      {
+        "name": "joyofpainting:mix5"
+      },
+      {
+        "name": "joyofpainting:mix6"
+      },
+      {
+        "name": "joyofpainting:mix7"
+      },
+      {
+        "name": "joyofpainting:mix8"
+      }
+    ]
+  },
+  "color_picker": {
+    "sounds": [
+      {
+        "name": "joyofpainting:picker1"
+      },
+      {
+        "name": "joyofpainting:picker2"
+      },
+      {
+        "name": "joyofpainting:picker3"
+      }
+    ]
+  },
+  "color_picker_suck": {
+    "sounds": [
+      {
+        "name": "joyofpainting:picker_suck1"
+      },
+      {
+        "name": "joyofpainting:picker_suck2"
+      },
+      {
+        "name": "joyofpainting:picker_suck3"
+      }
+    ]
+  },
+  "water": {
+    "sounds": [
+      {
+        "name": "joyofpainting:water1"
+      },
+      {
+        "name": "joyofpainting:water2"
+      }
+    ]
+  },
+  "water_drop": {
+    "sounds": [
+      {
+        "name": "joyofpainting:water_drop1"
+      },
+      {
+        "name": "joyofpainting:water_drop2"
+      }
+    ]
+  }
+}

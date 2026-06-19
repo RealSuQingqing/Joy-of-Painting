@@ -1,0 +1,14 @@
+{
+  "type": "joyofpainting:crafting_tagless_shaped",
+  "pattern": [
+    "c",
+    "c"
+  ],
+  "key": {
+    "c": { "item": "joyofpainting:item_canvas_long" }
+  },
+  "result": {
+    "item": "joyofpainting:item_canvas_large",
+    "count": 1
+  }
+}

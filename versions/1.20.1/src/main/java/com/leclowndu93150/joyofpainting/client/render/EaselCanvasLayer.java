@@ -1,0 +1,58 @@
+package com.leclowndu93150.joyofpainting.client.render;
+
+import com.leclowndu93150.joyofpainting.entity.EntityEasel;
+import com.leclowndu93150.joyofpainting.item.ItemCanvas;
+import com.mojang.blaze3d.vertex.PoseStack;
+import com.mojang.math.Axis;
+import net.minecraft.client.renderer.MultiBufferSource;
+import net.minecraft.client.renderer.entity.RenderLayerParent;
+import net.minecraft.client.renderer.entity.layers.RenderLayer;
+import net.minecraft.world.item.ItemDisplayContext;
+import net.minecraft.world.item.ItemStack;
+
+public class EaselCanvasLayer extends RenderLayer<EntityEasel, EaselModel> {
+    public EaselCanvasLayer(RenderLayerParent<EntityEasel, EaselModel> renderer) {
+        super(renderer);
+    }
+
+    @Override
+    public void render(PoseStack poseStack, MultiBufferSource buffer, int packedLight, EntityEasel entity,
+                       float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks,
+                       float netHeadYaw, float headPitch) {
+        ItemStack itemStack = entity.getItem();
+        if (!(itemStack.getItem() instanceof ItemCanvas itemCanvas)) return;
+        poseStack.pushPose();
+        switch (itemCanvas.getCanvasType()) {
+            case SMALL -> {
+                poseStack.scale(1.5F, 1.5f, 1.5f);
+                poseStack.mulPose(Axis.YP.rotationDegrees(180.0F));
+                poseStack.mulPose(Axis.ZP.rotationDegrees(180.0F));
+                poseStack.mulPose(Axis.XP.rotationDegrees(-15.0F));
+                poseStack.translate(-0.5, -1.17, -0.5);
+            }
+            case LARGE -> {
+                poseStack.scale(2F, 2f, 2f);
+                poseStack.mulPose(Axis.YP.rotationDegrees(180.0F));
+                poseStack.mulPose(Axis.ZP.rotationDegrees(180.0F));
+                poseStack.mulPose(Axis.XP.rotationDegrees(-15.0F));
+                poseStack.translate(-0.45, -1.015, -0.5);
+            }
+            case LONG -> {
+                poseStack.scale(2F, 2f, 2f);
+                poseStack.mulPose(Axis.YP.rotationDegrees(180.0F));
+                poseStack.mulPose(Axis.ZP.rotationDegrees(180.0F));
+                poseStack.mulPose(Axis.XP.rotationDegrees(-15.0F));
+                poseStack.translate(-0.45, -0.915, -0.5);
+            }
+            case TALL -> {
+                poseStack.scale(2F, 2f, 2f);
+                poseStack.mulPose(Axis.YP.rotationDegrees(180.0F));
+                poseStack.mulPose(Axis.ZP.rotationDegrees(180.0F));
+                poseStack.mulPose(Axis.XP.rotationDegrees(-15.0F));
+                poseStack.translate(-0.595, -1.015, -0.5);
+            }
+        }
+        CanvasItemRenderer.getInstance().renderByItem(itemStack, ItemDisplayContext.FIXED, poseStack, buffer, packedLight, 0);
+        poseStack.popPose();
+    }
+}

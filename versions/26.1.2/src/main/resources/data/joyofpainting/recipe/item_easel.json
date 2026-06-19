@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " s ",
+    " s ",
+    "s s"
+  ],
+  "key": {
+    "s": "minecraft:stick"
+  },
+  "result": {
+    "id": "joyofpainting:item_easel"
+  }
+}

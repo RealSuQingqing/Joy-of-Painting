@@ -1,0 +1,21 @@
+{
+  "model": {
+    "type": "minecraft:condition",
+    "property": "minecraft:has_component",
+    "component": "joyofpainting:canvas_pixels",
+    "on_true": {
+      "type": "minecraft:special",
+      "base": "joyofpainting:item/item_canvas_glass",
+      "model": {
+        "type": "joyofpainting:canvas",
+        "width": 16,
+        "height": 16,
+        "glass": true
+      }
+    },
+    "on_false": {
+      "type": "minecraft:model",
+      "model": "joyofpainting:item/item_canvas_glass"
+    }
+  }
+}

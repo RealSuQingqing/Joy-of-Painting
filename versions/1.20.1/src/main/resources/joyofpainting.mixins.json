@@ -1,0 +1,14 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "com.leclowndu93150.joyofpainting.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "refmap": "joyofpainting.refmap.json",
+  "mixins": [
+    "ShapedRecipeAccessor"
+  ],
+  "client": [],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
