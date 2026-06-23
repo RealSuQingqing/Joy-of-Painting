@@ -1,10 +1,7 @@
 package com.leclowndu93150.joyofpainting.network.packets;
 
-import com.leclowndu93150.joyofpainting.command.CommandExport;
-import net.minecraft.ChatFormatting;
-import net.minecraft.client.Minecraft;
+import com.leclowndu93150.joyofpainting.client.ClientPacketHandler;
 import net.minecraft.network.FriendlyByteBuf;
-import net.minecraft.network.chat.Component;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.fml.DistExecutor;
 import net.minecraftforge.network.NetworkEvent;
@@ -27,16 +24,6 @@ public class ExportPaintingPacket {
     }
 
     public static void handle(ExportPaintingPacket msg, Supplier<NetworkEvent.Context> ctxSupplier) {
-        DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> () -> handleClient(msg));
-    }
-
-    private static void handleClient(ExportPaintingPacket msg) {
-        Minecraft mc = Minecraft.getInstance();
-        if (mc.player == null) return;
-        if (CommandExport.doExport(mc.player, msg.canvasId)) {
-            mc.player.displayClientMessage(Component.translatable("joyofpainting.export.success", msg.canvasId).withStyle(ChatFormatting.GREEN), false);
-        } else {
-            mc.player.displayClientMessage(Component.translatable("joyofpainting.export.fail", msg.canvasId).withStyle(ChatFormatting.RED), false);
-        }
+        DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> () -> ClientPacketHandler.handleExport(msg));
     }
 }

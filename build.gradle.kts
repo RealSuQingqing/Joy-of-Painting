@@ -3,7 +3,7 @@ plugins {
 }
 
 group = "com.leclowndu93150"
-version = "1.0.0"
+version = "1.0.1"
 
 prism {
     metadata {
@@ -16,6 +16,16 @@ prism {
     }
 
     curseMaven()
+
+    publishing {
+
+        changelog = "fix server crash"
+
+        curseforge {
+            accessToken = providers.environmentVariable("CURSEFORGE_TOKEN")
+            projectId = "1581050"
+        }
+    }
 
     version("26.1.2") {
         neoforge {

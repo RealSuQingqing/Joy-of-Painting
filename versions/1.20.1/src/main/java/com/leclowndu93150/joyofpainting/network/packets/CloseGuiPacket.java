@@ -1,6 +1,6 @@
 package com.leclowndu93150.joyofpainting.network.packets;
 
-import net.minecraft.client.Minecraft;
+import com.leclowndu93150.joyofpainting.client.ClientPacketHandler;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.fml.DistExecutor;
@@ -16,6 +16,6 @@ public class CloseGuiPacket {
     public void encode(FriendlyByteBuf buf) {}
 
     public static void handle(CloseGuiPacket msg, Supplier<NetworkEvent.Context> ctxSupplier) {
-        DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> () -> Minecraft.getInstance().setScreen(null));
+        DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> () -> ClientPacketHandler.handleCloseGui(msg));
     }
 }

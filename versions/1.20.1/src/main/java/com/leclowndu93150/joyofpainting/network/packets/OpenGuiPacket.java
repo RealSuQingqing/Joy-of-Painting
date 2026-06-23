@@ -1,16 +1,8 @@
 package com.leclowndu93150.joyofpainting.network.packets;
 
-import com.leclowndu93150.joyofpainting.client.JoyOfPaintingClient;
-import com.leclowndu93150.joyofpainting.entity.EntityEasel;
-import com.leclowndu93150.joyofpainting.item.ItemPalette;
-import net.minecraft.ChatFormatting;
-import net.minecraft.client.Minecraft;
+import com.leclowndu93150.joyofpainting.client.ClientPacketHandler;
 import net.minecraft.network.FriendlyByteBuf;
-import net.minecraft.network.chat.Component;
 import net.minecraft.world.InteractionHand;
-import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.fml.DistExecutor;
 import net.minecraftforge.network.NetworkEvent;
@@ -46,26 +38,6 @@ public class OpenGuiPacket {
     }
 
     public static void handle(OpenGuiPacket msg, Supplier<NetworkEvent.Context> ctxSupplier) {
-        DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> () -> handleClient(msg));
-    }
-
-    private static void handleClient(OpenGuiPacket msg) {
-        Player player = Minecraft.getInstance().player;
-        if (player == null) return;
-        if (!msg.allowed) {
-            player.displayClientMessage(Component.translatable("easel.deny").withStyle(ChatFormatting.RED), false);
-            return;
-        }
-        Entity entity = player.level().getEntity(msg.easelId);
-        if (!(entity instanceof EntityEasel easel)) return;
-        ItemStack inHand = player.getItemInHand(msg.hand);
-        boolean handHoldsPalette = inHand.getItem() instanceof ItemPalette;
-        if (msg.edit) {
-            if (handHoldsPalette) {
-                JoyOfPaintingClient.showCanvasGui(easel, inHand);
-            }
-        } else {
-            JoyOfPaintingClient.showCanvasGui(easel, ItemStack.EMPTY);
-        }
+        DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> () -> ClientPacketHandler.handleOpenGui(msg));
     }
 }
