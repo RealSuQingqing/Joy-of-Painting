@@ -17,6 +17,9 @@ plugins {
 rootProject.name = "JoyofPainting"
 
 prism {
+    version("26.2") {
+        neoforge()
+    }
     version("26.1.2") {
         neoforge()
     }

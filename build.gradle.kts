@@ -27,6 +27,21 @@ prism {
         }
     }
 
+    version("26.2") {
+        neoforge {
+            loaderVersion = "26.2.0.7-beta"
+            loaderVersionRange = "[4,)"
+            mixins {
+                config("joyofpainting.mixins.json")
+                refmap("joyofpainting.refmap.json")
+            }
+
+            dependencies {
+                modRuntimeOnly("curse.maven:jei-238222:8108851")
+            }
+        }
+    }
+
     version("26.1.2") {
         neoforge {
             loaderVersion = "26.1.2.76"

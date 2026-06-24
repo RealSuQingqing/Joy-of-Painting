@@ -1,0 +1,59 @@
+package com.leclowndu93150.joyofpainting.client.render;
+
+import com.leclowndu93150.joyofpainting.CanvasType;
+import com.leclowndu93150.joyofpainting.client.render.state.EntityEaselRenderState;
+import net.minecraft.client.model.EntityModel;
+import net.minecraft.client.model.geom.ModelPart;
+import net.minecraft.client.model.geom.PartPose;
+import net.minecraft.client.model.geom.builders.CubeListBuilder;
+import net.minecraft.client.model.geom.builders.LayerDefinition;
+import net.minecraft.client.model.geom.builders.MeshDefinition;
+import net.minecraft.client.model.geom.builders.PartDefinition;
+
+public class EaselModel extends EntityModel<EntityEaselRenderState> {
+    private final ModelPart bottomBar;
+    private final ModelPart topBar;
+
+    public EaselModel(ModelPart model) {
+        super(model);
+        this.bottomBar = model.getChild("bottomBar");
+        this.topBar = model.getChild("topBar");
+    }
+
+    public static LayerDefinition createBodyLayer() {
+        MeshDefinition mesh = new MeshDefinition();
+        PartDefinition root = mesh.getRoot();
+
+        root.addOrReplaceChild("bb_main", CubeListBuilder.create(),
+                PartPose.offsetAndRotation(0.0f, 24.0f, 0.0f, 0.0f, 0.0f, 0.0f));
+        root.addOrReplaceChild("cube_r1", CubeListBuilder.create().texOffs(12, 0).addBox(-5.5f, -31.5f, -0.8f, 1.0f, 26.0f, 1.0f),
+                PartPose.offsetAndRotation(5.0f, 24.0f, -5.0f, -0.2618f, 0.0f, 0.0f));
+        root.addOrReplaceChild("bottomBar", CubeListBuilder.create().texOffs(0, 0).addBox(-4.5f, -0.5f, -0.5f, 9.0f, 1.0f, 1.0f),
+                PartPose.offsetAndRotation(0.0f, 16.1f, -4.0f, -0.2618f, 0.0f, 0.0f));
+        root.addOrReplaceChild("topBar", CubeListBuilder.create().texOffs(2, 2).addBox(-3.0f, -14.0f, -0.5f, 6.0f, 1.0f, 1.0f),
+                PartPose.offsetAndRotation(0.0f, 16.75f, -4.0f, -0.2618f, 0.0f, 0.0f));
+        root.addOrReplaceChild("cube_r3", CubeListBuilder.create().texOffs(8, 0).addBox(-0.5f, -21.0f, -1.0f, 1.0f, 21.0f, 1.0f),
+                PartPose.offsetAndRotation(0.0f, 24.0f, 6.0f, 0.2618f, 0.0f, 0.0f));
+        root.addOrReplaceChild("cube_r4", CubeListBuilder.create().texOffs(4, 0).addBox(0.0f, -29.0f, -1.0f, 1.0f, 29.0f, 1.0f),
+                PartPose.offsetAndRotation(5.0f, 24.0f, -5.0f, -0.2618f, 0.0f, -0.1309f));
+        root.addOrReplaceChild("cube_r5", CubeListBuilder.create().texOffs(0, 0).addBox(-1.0f, -29.0f, -1.0f, 1.0f, 29.0f, 1.0f),
+                PartPose.offsetAndRotation(-5.0f, 24.0f, -5.0f, -0.2618f, 0.0f, 0.1309f));
+
+        return LayerDefinition.create(mesh, 16, 32);
+    }
+
+    @Override
+    public void setupAnim(EntityEaselRenderState state) {
+        super.setupAnim(state);
+        CanvasType ct = state.canvasType;
+        if (ct == CanvasType.LONG) {
+            bottomBar.y = 13.5f; bottomBar.z = -3.25f; topBar.y = 16.25f; topBar.z = -4.0f;
+            return;
+        }
+        if (ct == CanvasType.LARGE || ct == CanvasType.TALL) {
+            bottomBar.y = 16.5f; bottomBar.z = -4.0f; topBar.y = 9.8f; topBar.z = -2.25f;
+            return;
+        }
+        bottomBar.y = 16.1f; bottomBar.z = -4.0f; topBar.y = 16.75f; topBar.z = -4.0f;
+    }
+}

@@ -15,6 +15,10 @@
 @rem
 
 @if "%DEBUG%" == "" @echo off
+
+@rem Set JAVA_HOME to Java 25
+set JAVA_HOME=C:\Program Files\Java\jdk-25.0.3
+
 @rem ##########################################################################
 @rem
 @rem  Gradle startup script for Windows

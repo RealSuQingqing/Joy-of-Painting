@@ -1,0 +1,319 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "java",
+      "request": "launch",
+      "name": "Forge Client (1.20.1)",
+      "presentation": {
+        "group": "Mod Development - 1.20.1",
+        "order": 0
+      },
+      "projectName": "1.20.1",
+      "mainClass": "net.neoforged.devlaunch.Main",
+      "args": [
+        "@D:\\Program Files\\AAApainter262\\Joy-of-Painting\\versions\\1.20.1\\build\\moddev\\clientRunProgramArgs.txt"
+      ],
+      "vmArgs": [
+        "@D:\\Program Files\\AAApainter262\\Joy-of-Painting\\versions\\1.20.1\\build\\moddev\\clientRunVmArgs.txt",
+        "-Dfml.modFolders\u003djoyofpainting%%D:\\Program Files\\AAApainter262\\Joy-of-Painting\\versions\\1.20.1\\bin\\main"
+      ],
+      "cwd": "${workspaceFolder}\\versions\\1.20.1\\runs\\client",
+      "env": {
+        "MOD_CLASSES": "joyofpainting%%D:\\Program Files\\AAApainter262\\Joy-of-Painting\\versions\\1.20.1\\bin\\main"
+      },
+      "console": "internalConsole",
+      "shortenCommandLine": "none"
+    },
+    {
+      "type": "java",
+      "request": "launch",
+      "name": "Forge Data (1.20.1)",
+      "presentation": {
+        "group": "Mod Development - 1.20.1",
+        "order": 1
+      },
+      "projectName": "1.20.1",
+      "mainClass": "net.neoforged.devlaunch.Main",
+      "args": [
+        "@D:\\Program Files\\AAApainter262\\Joy-of-Painting\\versions\\1.20.1\\build\\moddev\\dataRunProgramArgs.txt"
+      ],
+      "vmArgs": [
+        "@D:\\Program Files\\AAApainter262\\Joy-of-Painting\\versions\\1.20.1\\build\\moddev\\dataRunVmArgs.txt",
+        "-Dfml.modFolders\u003djoyofpainting%%D:\\Program Files\\AAApainter262\\Joy-of-Painting\\versions\\1.20.1\\bin\\main"
+      ],
+      "cwd": "${workspaceFolder}\\versions\\1.20.1\\runs\\data",
+      "env": {
+        "MOD_CLASSES": "joyofpainting%%D:\\Program Files\\AAApainter262\\Joy-of-Painting\\versions\\1.20.1\\bin\\main"
+      },
+      "console": "internalConsole",
+      "shortenCommandLine": "none"
+    },
+    {
+      "type": "java",
+      "request": "launch",
+      "name": "Forge Server (1.20.1)",
+      "presentation": {
+        "group": "Mod Development - 1.20.1",
+        "order": 2
+      },
+      "projectName": "1.20.1",
+      "mainClass": "net.neoforged.devlaunch.Main",
+      "args": [
+        "@D:\\Program Files\\AAApainter262\\Joy-of-Painting\\versions\\1.20.1\\build\\moddev\\serverRunProgramArgs.txt"
+      ],
+      "vmArgs": [
+        "@D:\\Program Files\\AAApainter262\\Joy-of-Painting\\versions\\1.20.1\\build\\moddev\\serverRunVmArgs.txt",
+        "-Dfml.modFolders\u003djoyofpainting%%D:\\Program Files\\AAApainter262\\Joy-of-Painting\\versions\\1.20.1\\bin\\main"
+      ],
+      "cwd": "${workspaceFolder}\\versions\\1.20.1\\runs\\server",
+      "env": {
+        "MOD_CLASSES": "joyofpainting%%D:\\Program Files\\AAApainter262\\Joy-of-Painting\\versions\\1.20.1\\bin\\main"
+      },
+      "console": "internalConsole",
+      "shortenCommandLine": "none"
+    },
+    {
+      "type": "java",
+      "request": "launch",
+      "name": "NeoForge Client (1.21.1)",
+      "presentation": {
+        "group": "Mod Development - 1.21.1",
+        "order": 0
+      },
+      "projectName": "1.21.1",
+      "mainClass": "net.neoforged.devlaunch.Main",
+      "args": [
+        "@D:\\Program Files\\AAApainter262\\Joy-of-Painting\\versions\\1.21.1\\build\\moddev\\clientRunProgramArgs.txt"
+      ],
+      "vmArgs": [
+        "@D:\\Program Files\\AAApainter262\\Joy-of-Painting\\versions\\1.21.1\\build\\moddev\\clientRunVmArgs.txt",
+        "-Dfml.modFolders\u003djoyofpainting%%D:\\Program Files\\AAApainter262\\Joy-of-Painting\\versions\\1.21.1\\bin\\main"
+      ],
+      "cwd": "${workspaceFolder}\\versions\\1.21.1\\runs\\client",
+      "env": {},
+      "console": "internalConsole",
+      "shortenCommandLine": "none"
+    },
+    {
+      "type": "java",
+      "request": "launch",
+      "name": "NeoForge Data (1.21.1)",
+      "presentation": {
+        "group": "Mod Development - 1.21.1",
+        "order": 1
+      },
+      "projectName": "1.21.1",
+      "mainClass": "net.neoforged.devlaunch.Main",
+      "args": [
+        "@D:\\Program Files\\AAApainter262\\Joy-of-Painting\\versions\\1.21.1\\build\\moddev\\dataRunProgramArgs.txt"
+      ],
+      "vmArgs": [
+        "@D:\\Program Files\\AAApainter262\\Joy-of-Painting\\versions\\1.21.1\\build\\moddev\\dataRunVmArgs.txt",
+        "-Dfml.modFolders\u003djoyofpainting%%D:\\Program Files\\AAApainter262\\Joy-of-Painting\\versions\\1.21.1\\bin\\main"
+      ],
+      "cwd": "${workspaceFolder}\\versions\\1.21.1\\runs\\data",
+      "env": {},
+      "console": "internalConsole",
+      "shortenCommandLine": "none"
+    },
+    {
+      "type": "java",
+      "request": "launch",
+      "name": "NeoForge Server (1.21.1)",
+      "presentation": {
+        "group": "Mod Development - 1.21.1",
+        "order": 2
+      },
+      "projectName": "1.21.1",
+      "mainClass": "net.neoforged.devlaunch.Main",
+      "args": [
+        "@D:\\Program Files\\AAApainter262\\Joy-of-Painting\\versions\\1.21.1\\build\\moddev\\serverRunProgramArgs.txt"
+      ],
+      "vmArgs": [
+        "@D:\\Program Files\\AAApainter262\\Joy-of-Painting\\versions\\1.21.1\\build\\moddev\\serverRunVmArgs.txt",
+        "-Dfml.modFolders\u003djoyofpainting%%D:\\Program Files\\AAApainter262\\Joy-of-Painting\\versions\\1.21.1\\bin\\main"
+      ],
+      "cwd": "${workspaceFolder}\\versions\\1.21.1\\runs\\server",
+      "env": {},
+      "console": "internalConsole",
+      "shortenCommandLine": "none"
+    },
+    {
+      "type": "java",
+      "request": "launch",
+      "name": "NeoForge Client (26.1.2)",
+      "presentation": {
+        "group": "Mod Development - 26.1.2",
+        "order": 0
+      },
+      "projectName": "26.1.2",
+      "mainClass": "net.neoforged.devlaunch.Main",
+      "args": [
+        "@D:\\Program Files\\AAApainter262\\Joy-of-Painting\\versions\\26.1.2\\build\\moddev\\clientRunProgramArgs.txt"
+      ],
+      "vmArgs": [
+        "@D:\\Program Files\\AAApainter262\\Joy-of-Painting\\versions\\26.1.2\\build\\moddev\\clientRunVmArgs.txt",
+        "-Dfml.modFolders\u003djoyofpainting%%D:\\Program Files\\AAApainter262\\Joy-of-Painting\\versions\\26.1.2\\bin\\main"
+      ],
+      "cwd": "${workspaceFolder}\\versions\\26.1.2\\runs\\client",
+      "env": {},
+      "console": "internalConsole",
+      "shortenCommandLine": "none"
+    },
+    {
+      "type": "java",
+      "request": "launch",
+      "name": "NeoForge ClientData (26.1.2)",
+      "presentation": {
+        "group": "Mod Development - 26.1.2",
+        "order": 1
+      },
+      "projectName": "26.1.2",
+      "mainClass": "net.neoforged.devlaunch.Main",
+      "args": [
+        "@D:\\Program Files\\AAApainter262\\Joy-of-Painting\\versions\\26.1.2\\build\\moddev\\clientDataRunProgramArgs.txt"
+      ],
+      "vmArgs": [
+        "@D:\\Program Files\\AAApainter262\\Joy-of-Painting\\versions\\26.1.2\\build\\moddev\\clientDataRunVmArgs.txt",
+        "-Dfml.modFolders\u003djoyofpainting%%D:\\Program Files\\AAApainter262\\Joy-of-Painting\\versions\\26.1.2\\bin\\main"
+      ],
+      "cwd": "${workspaceFolder}\\versions\\26.1.2\\runs\\clientData",
+      "env": {},
+      "console": "internalConsole",
+      "shortenCommandLine": "none"
+    },
+    {
+      "type": "java",
+      "request": "launch",
+      "name": "NeoForge Server (26.1.2)",
+      "presentation": {
+        "group": "Mod Development - 26.1.2",
+        "order": 2
+      },
+      "projectName": "26.1.2",
+      "mainClass": "net.neoforged.devlaunch.Main",
+      "args": [
+        "@D:\\Program Files\\AAApainter262\\Joy-of-Painting\\versions\\26.1.2\\build\\moddev\\serverRunProgramArgs.txt"
+      ],
+      "vmArgs": [
+        "@D:\\Program Files\\AAApainter262\\Joy-of-Painting\\versions\\26.1.2\\build\\moddev\\serverRunVmArgs.txt",
+        "-Dfml.modFolders\u003djoyofpainting%%D:\\Program Files\\AAApainter262\\Joy-of-Painting\\versions\\26.1.2\\bin\\main"
+      ],
+      "cwd": "${workspaceFolder}\\versions\\26.1.2\\runs\\server",
+      "env": {},
+      "console": "internalConsole",
+      "shortenCommandLine": "none"
+    },
+    {
+      "type": "java",
+      "request": "launch",
+      "name": "NeoForge ServerData (26.1.2)",
+      "presentation": {
+        "group": "Mod Development - 26.1.2",
+        "order": 3
+      },
+      "projectName": "26.1.2",
+      "mainClass": "net.neoforged.devlaunch.Main",
+      "args": [
+        "@D:\\Program Files\\AAApainter262\\Joy-of-Painting\\versions\\26.1.2\\build\\moddev\\serverDataRunProgramArgs.txt"
+      ],
+      "vmArgs": [
+        "@D:\\Program Files\\AAApainter262\\Joy-of-Painting\\versions\\26.1.2\\build\\moddev\\serverDataRunVmArgs.txt",
+        "-Dfml.modFolders\u003djoyofpainting%%D:\\Program Files\\AAApainter262\\Joy-of-Painting\\versions\\26.1.2\\bin\\main"
+      ],
+      "cwd": "${workspaceFolder}\\versions\\26.1.2\\runs\\serverData",
+      "env": {},
+      "console": "internalConsole",
+      "shortenCommandLine": "none"
+    },
+    {
+      "type": "java",
+      "request": "launch",
+      "name": "NeoForge Client (26.2)",
+      "presentation": {
+        "group": "Mod Development - 26.2",
+        "order": 0
+      },
+      "projectName": "26.2",
+      "mainClass": "net.neoforged.devlaunch.Main",
+      "args": [
+        "@D:\\Program Files\\AAApainter262\\Joy-of-Painting\\versions\\26.2\\build\\moddev\\clientRunProgramArgs.txt"
+      ],
+      "vmArgs": [
+        "@D:\\Program Files\\AAApainter262\\Joy-of-Painting\\versions\\26.2\\build\\moddev\\clientRunVmArgs.txt",
+        "-Dfml.modFolders\u003djoyofpainting%%D:\\Program Files\\AAApainter262\\Joy-of-Painting\\versions\\26.2\\bin\\main"
+      ],
+      "cwd": "${workspaceFolder}\\versions\\26.2\\runs\\client",
+      "env": {},
+      "console": "internalConsole",
+      "shortenCommandLine": "none"
+    },
+    {
+      "type": "java",
+      "request": "launch",
+      "name": "NeoForge ClientData (26.2)",
+      "presentation": {
+        "group": "Mod Development - 26.2",
+        "order": 1
+      },
+      "projectName": "26.2",
+      "mainClass": "net.neoforged.devlaunch.Main",
+      "args": [
+        "@D:\\Program Files\\AAApainter262\\Joy-of-Painting\\versions\\26.2\\build\\moddev\\clientDataRunProgramArgs.txt"
+      ],
+      "vmArgs": [
+        "@D:\\Program Files\\AAApainter262\\Joy-of-Painting\\versions\\26.2\\build\\moddev\\clientDataRunVmArgs.txt",
+        "-Dfml.modFolders\u003djoyofpainting%%D:\\Program Files\\AAApainter262\\Joy-of-Painting\\versions\\26.2\\bin\\main"
+      ],
+      "cwd": "${workspaceFolder}\\versions\\26.2\\runs\\clientData",
+      "env": {},
+      "console": "internalConsole",
+      "shortenCommandLine": "none"
+    },
+    {
+      "type": "java",
+      "request": "launch",
+      "name": "NeoForge Server (26.2)",
+      "presentation": {
+        "group": "Mod Development - 26.2",
+        "order": 2
+      },
+      "projectName": "26.2",
+      "mainClass": "net.neoforged.devlaunch.Main",
+      "args": [
+        "@D:\\Program Files\\AAApainter262\\Joy-of-Painting\\versions\\26.2\\build\\moddev\\serverRunProgramArgs.txt"
+      ],
+      "vmArgs": [
+        "@D:\\Program Files\\AAApainter262\\Joy-of-Painting\\versions\\26.2\\build\\moddev\\serverRunVmArgs.txt",
+        "-Dfml.modFolders\u003djoyofpainting%%D:\\Program Files\\AAApainter262\\Joy-of-Painting\\versions\\26.2\\bin\\main"
+      ],
+      "cwd": "${workspaceFolder}\\versions\\26.2\\runs\\server",
+      "env": {},
+      "console": "internalConsole",
+      "shortenCommandLine": "none"
+    },
+    {
+      "type": "java",
+      "request": "launch",
+      "name": "NeoForge ServerData (26.2)",
+      "presentation": {
+        "group": "Mod Development - 26.2",
+        "order": 3
+      },
+      "projectName": "26.2",
+      "mainClass": "net.neoforged.devlaunch.Main",
+      "args": [
+        "@D:\\Program Files\\AAApainter262\\Joy-of-Painting\\versions\\26.2\\build\\moddev\\serverDataRunProgramArgs.txt"
+      ],
+      "vmArgs": [
+        "@D:\\Program Files\\AAApainter262\\Joy-of-Painting\\versions\\26.2\\build\\moddev\\serverDataRunVmArgs.txt",
+        "-Dfml.modFolders\u003djoyofpainting%%D:\\Program Files\\AAApainter262\\Joy-of-Painting\\versions\\26.2\\bin\\main"
+      ],
+      "cwd": "${workspaceFolder}\\versions\\26.2\\runs\\serverData",
+      "env": {},
+      "console": "internalConsole",
+      "shortenCommandLine": "none"
+    }
+  ]
+}

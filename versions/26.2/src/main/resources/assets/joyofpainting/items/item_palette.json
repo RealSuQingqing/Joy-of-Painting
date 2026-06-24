@@ -1,0 +1,28 @@
+{
+  "model": {
+    "type": "minecraft:range_dispatch",
+    "property": "joyofpainting:palette_color_count",
+    "fallback": {
+      "type": "minecraft:model",
+      "model": "joyofpainting:item/item_palette"
+    },
+    "entries": [
+      { "threshold": 0.0625, "model": { "type": "minecraft:model", "model": "joyofpainting:item/item_palette1" } },
+      { "threshold": 0.1250, "model": { "type": "minecraft:model", "model": "joyofpainting:item/item_palette2" } },
+      { "threshold": 0.1875, "model": { "type": "minecraft:model", "model": "joyofpainting:item/item_palette3" } },
+      { "threshold": 0.2500, "model": { "type": "minecraft:model", "model": "joyofpainting:item/item_palette4" } },
+      { "threshold": 0.3125, "model": { "type": "minecraft:model", "model": "joyofpainting:item/item_palette5" } },
+      { "threshold": 0.3750, "model": { "type": "minecraft:model", "model": "joyofpainting:item/item_palette6" } },
+      { "threshold": 0.4375, "model": { "type": "minecraft:model", "model": "joyofpainting:item/item_palette7" } },
+      { "threshold": 0.5000, "model": { "type": "minecraft:model", "model": "joyofpainting:item/item_palette8" } },
+      { "threshold": 0.5625, "model": { "type": "minecraft:model", "model": "joyofpainting:item/item_palette9" } },
+      { "threshold": 0.6250, "model": { "type": "minecraft:model", "model": "joyofpainting:item/item_palette10" } },
+      { "threshold": 0.6875, "model": { "type": "minecraft:model", "model": "joyofpainting:item/item_palette11" } },
+      { "threshold": 0.7500, "model": { "type": "minecraft:model", "model": "joyofpainting:item/item_palette12" } },
+      { "threshold": 0.8125, "model": { "type": "minecraft:model", "model": "joyofpainting:item/item_palette13" } },
+      { "threshold": 0.8750, "model": { "type": "minecraft:model", "model": "joyofpainting:item/item_palette14" } },
+      { "threshold": 0.9375, "model": { "type": "minecraft:model", "model": "joyofpainting:item/item_palette15" } },
+      { "threshold": 1.0000, "model": { "type": "minecraft:model", "model": "joyofpainting:item/item_palette16" } }
+    ]
+  }
+}

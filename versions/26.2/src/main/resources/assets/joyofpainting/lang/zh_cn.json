@@ -1,0 +1,14 @@
+{
+  "itemGroup.joyofpainting.paint_tab": "绘画之乐",
+  "item.joyofpainting.item_palette": "调色板",
+  "item.joyofpainting.item_canvas": "画布",
+  "item.joyofpainting.item_canvas_large": "画布（大）",
+  "item.joyofpainting.item_canvas_long": "画面（横向）",
+  "item.joyofpainting.item_canvas_tall": "画布（竖向）",
+  "item.joyofpainting.item_easel": "画架",
+  "palette.basic_count": "%1$s 基本色",
+  "palette.custom_count": "%1$s 自定义颜色",
+  "palette.empty": "空调色板",
+  "entity.joyofpainting.canvas": "画布",
+  "entity.joyofpainting.easel": "画架"
+}
