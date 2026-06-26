@@ -16,6 +16,7 @@ import com.mojang.blaze3d.platform.Window;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.GuiGraphicsExtractor;
 import net.minecraft.client.gui.components.Button;
+import net.minecraft.client.gui.components.EditBox;
 import net.minecraft.client.gui.components.Tooltip;
 import net.minecraft.client.input.CharacterEvent;
 import net.minecraft.client.input.KeyEvent;
@@ -23,6 +24,8 @@ import net.minecraft.client.input.MouseButtonEvent;
 import net.minecraft.client.renderer.RenderPipelines;
 import net.minecraft.client.resources.language.I18n;
 import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.Style;
+import net.minecraft.util.FormattedCharSequence;
 import net.minecraft.resources.Identifier;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
@@ -84,6 +87,7 @@ public class GuiCanvasEdit extends BasePalette {
     private boolean isSigned = false;
     private int[] pixels;
     private String canvasTitle = "";
+    private EditBox titleEditBox;
     private final String canvasId;
     private int version = 0;
     private final EntityEasel easel;
@@ -208,12 +212,17 @@ public class GuiCanvasEdit extends BasePalette {
             if (!isSigned) {
                 gettingSigned = true;
                 resetPositions();
+                updateTitleEditBoxPosition();
+                titleEditBox.setValue(canvasTitle);
+                titleEditBox.setVisible(true);
+                titleEditBox.setFocused(true);
                 updateButtons();
                 GLFW.glfwSetInputMode(window.handle(), GLFW_CURSOR, GLFW_CURSOR_NORMAL);
             }
         }).bounds(x, y, 98, 20).build());
         this.buttonFinalize = this.addRenderableWidget(Button.builder(Component.translatable("canvas.finalizeButton"), button -> {
             if (!isSigned) {
+                canvasTitle = titleEditBox.getValue();
                 canvasDirty = true;
                 isSigned = true;
                 if (minecraft != null) minecraft.gui.setScreen(null);
@@ -222,6 +231,9 @@ public class GuiCanvasEdit extends BasePalette {
         this.buttonCancel = this.addRenderableWidget(Button.builder(Component.translatable("gui.cancel"), button -> {
             if (!isSigned) {
                 gettingSigned = false;
+                canvasTitle = titleEditBox.getValue();
+                titleEditBox.setVisible(false);
+                titleEditBox.setFocused(false);
                 updateButtons();
                 GLFW.glfwSetInputMode(window.handle(), GLFW_CURSOR, GLFW_CURSOR_HIDDEN);
             }
@@ -232,7 +244,28 @@ public class GuiCanvasEdit extends BasePalette {
         this.addRenderableWidget(new ToggleHelpButton(x, y, 21, 21, 197, 0, 21,
                 PALETTE_TEXTURES, 256, 256, button -> showHelp = !showHelp, Tooltip.create(Component.translatable("canvas.help.toggleHelp"))));
 
+        this.titleEditBox = new EditBox(font, (int) canvasX + 26, (int) canvasY + 44, 116, 20, Component.translatable("canvas.editTitle"));
+        this.titleEditBox.setMaxLength(16);
+        this.titleEditBox.setCanLoseFocus(false);
+        this.titleEditBox.setBordered(false);
+        this.titleEditBox.setTextColor(0xFF000000);
+        this.titleEditBox.setResponder(v -> {
+            canvasTitle = v;
+            updateButtons();
+        });
+        this.titleEditBox.setCentered(true);
+        this.titleEditBox.setTextShadow(false);
+        this.titleEditBox.setVisible(false);
+        this.addRenderableWidget(this.titleEditBox);
+
         updateButtons();
+    }
+
+    private void updateTitleEditBoxPosition() {
+        if (titleEditBox != null) {
+            titleEditBox.setX((int) canvasX + 26);
+            titleEditBox.setY((int) canvasY + 44);
+        }
     }
 
     private void updateButtons() {
@@ -243,6 +276,10 @@ public class GuiCanvasEdit extends BasePalette {
             buttonFinalize.active = !canvasTitle.trim().isEmpty();
             buttonFinalize.setX((int) canvasX - 100);
             buttonCancel.setX((int) canvasX - 100);
+            if (titleEditBox != null) {
+                titleEditBox.setX((int) canvasX + 26);
+                titleEditBox.setY((int) canvasY + 44);
+            }
         }
     }
 
@@ -328,7 +365,6 @@ public class GuiCanvasEdit extends BasePalette {
     @Override
     public void extractRenderState(GuiGraphicsExtractor graphics, int mouseX, int mouseY, float f) {
         if (!gettingSigned) super.extractRenderState(graphics, mouseX, mouseY, f);
-        else super.superRender(graphics, mouseX, mouseY, f);
 
         int holderMargin = sideMargin();
         graphics.fill((int) (canvasX + canvasWidth * 0.25), (int) canvasY - CANVAS_HOLDER_HEIGHT - holderMargin, (int) (canvasX + canvasWidth * 0.75), (int) canvasY - holderMargin, 0xffe1e1e1);
@@ -396,6 +432,7 @@ public class GuiCanvasEdit extends BasePalette {
             }
         } else {
             drawSigning(graphics);
+            super.superRender(graphics, mouseX, mouseY, f);
         }
     }
 
@@ -450,20 +487,13 @@ public class GuiCanvasEdit extends BasePalette {
         int i = (int) canvasX;
         int j = (int) canvasY;
         graphics.fill(i + 10, j + 10, i + 150, j + 150, 0xFFEEEEEE);
-        String s = canvasTitle;
-        if (!isSigned) {
-            if (updateCount / 6 % 2 == 0) s = s + ChatFormatting.BLACK + "_";
-            else s = s + ChatFormatting.GRAY + "_";
-        }
         String s1 = I18n.get("canvas.editTitle");
         int k = font.width(s1);
-        graphics.text(font, s1, (int) (i + 26 + (116 - k) / 2.0f), j + 16 + 16, 0, false);
-        int l = font.width(s);
-        graphics.text(font, s, (int) (i + 26 + (116 - l) / 2.0f), j + 48, 0, false);
+        graphics.text(font, s1, (int) (i + 26 + (116 - k) / 2.0f), j + 16 + 16, 0xFF000000, false);
         String s2 = I18n.get("canvas.byAuthor", editingPlayer.getName().getString());
         int i1 = font.width(s2);
-        graphics.text(font, ChatFormatting.DARK_GRAY + s2, (int) (i + 26 + (116 - i1) / 2.0f), j + 48 + 10, 0, false);
-        graphics.textWithWordWrap(font, Component.translatable("canvas.finalizeWarning"), i + 26, j + 80, 116, 0);
+        graphics.text(font, ChatFormatting.DARK_GRAY + s2, (int) (i + 26 + (116 - i1) / 2.0f), j + 48 + 10, 0xFF000000, false);
+        graphics.textWithWordWrap(font, Component.translatable("canvas.finalizeWarning"), i + 26, j + 80, 116, 0xFF000000);
     }
 
     private void playBrushSound() {
@@ -476,17 +506,18 @@ public class GuiCanvasEdit extends BasePalette {
         int keyCode = event.key();
         int modifiers = event.modifiers();
         if (gettingSigned) {
-            if (keyCode == GLFW.GLFW_KEY_BACKSPACE) {
-                if (!canvasTitle.isEmpty()) {
-                    canvasTitle = canvasTitle.substring(0, canvasTitle.length() - 1);
-                    updateButtons();
+            if (keyCode == GLFW.GLFW_KEY_ESCAPE) {
+                gettingSigned = false;
+                canvasTitle = titleEditBox.getValue();
+                titleEditBox.setVisible(false);
+                titleEditBox.setFocused(false);
+                updateButtons();
+                if (minecraft != null) {
+                    GLFW.glfwSetInputMode(minecraft.getWindow().handle(), GLFW_CURSOR, GLFW_CURSOR_HIDDEN);
                 }
-            } else if (keyCode == GLFW.GLFW_KEY_ENTER && !canvasTitle.isEmpty()) {
-                canvasDirty = true;
-                isSigned = true;
-                if (minecraft != null) minecraft.gui.setScreen(null);
+                return true;
             }
-            return true;
+            return super.keyPressed(event);
         }
         if (keyCode == GLFW.GLFW_KEY_Z && (modifiers & GLFW.GLFW_MOD_CONTROL) == GLFW.GLFW_MOD_CONTROL) {
             if (!undoStack.isEmpty()) {
@@ -509,13 +540,12 @@ public class GuiCanvasEdit extends BasePalette {
 
     @Override
     public boolean charTyped(CharacterEvent event) {
+        if (gettingSigned) {
+            return super.charTyped(event);
+        }
         super.charTyped(event);
         int codepoint = event.codepoint();
         if (!isSigned) {
-            if (gettingSigned && canvasTitle.length() < 16 && isAllowedChatCharacter(codepoint)) {
-                canvasTitle = canvasTitle + new String(Character.toChars(codepoint));
-                updateButtons();
-            }
             return true;
         }
         return false;
@@ -543,7 +573,7 @@ public class GuiCanvasEdit extends BasePalette {
 
     @Override
     public boolean mouseClicked(MouseButtonEvent event, boolean doubleClick) {
-        if (gettingSigned) return super.superMouseClicked(event, doubleClick);
+        if (gettingSigned) return super.mouseClicked(event, doubleClick);
 
         int mouseX = (int) Math.floor(event.x());
         int mouseY = (int) Math.floor(event.y());
@@ -600,7 +630,7 @@ public class GuiCanvasEdit extends BasePalette {
     @Override
     public boolean mouseReleased(MouseButtonEvent event) {
         isCarryingCanvas = false;
-        if (gettingSigned) return super.superMouseReleased(event);
+        if (gettingSigned) return super.mouseReleased(event);
         draggedPoints.clear();
         if (undoStarted && !touchedCanvas) {
             undoStarted = false;
@@ -613,7 +643,7 @@ public class GuiCanvasEdit extends BasePalette {
 
     @Override
     public boolean mouseDragged(MouseButtonEvent event, double deltaX, double deltaY) {
-        if (gettingSigned) return super.superMouseDragged(event, deltaX, deltaY);
+        if (gettingSigned) return super.mouseDragged(event, deltaX, deltaY);
         int mouseButton = event.button();
         if (!isCarryingColor && !isCarryingWater && !isPickingColor && !isCarryingPalette && !isCarryingCanvas) {
             int mouseX = (int) Math.floor(event.x());
@@ -688,6 +718,9 @@ public class GuiCanvasEdit extends BasePalette {
 
     @Override
     public void removed() {
+        if (gettingSigned && titleEditBox != null) {
+            canvasTitle = titleEditBox.getValue();
+        }
         updateCanvas(true);
         if (minecraft != null) {
             GLFW.glfwSetInputMode(minecraft.getWindow().handle(), GLFW_CURSOR, GLFW_CURSOR_NORMAL);
